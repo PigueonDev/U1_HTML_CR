@@ -1,0 +1,28 @@
+# Dependencias
+node_modules/
+package-lock.json
+yarn.lock
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos temporales
+*.tmp
+.cache/
+
+# Compilación y dist
+dist/
+build/
+
+# Archivos sensibles
+.env
+.env.local

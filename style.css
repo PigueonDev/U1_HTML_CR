@@ -1,0 +1,207 @@
+/* Reset y Variables de Accesibilidad */
+:root {
+    --color-primary: #0052CC;
+    --color-secondary: #172B4D;
+    --color-text: #172B4D;
+    --color-text-light: #626F86;
+    --color-bg: #FFFFFF;
+    --color-bg-light: #F7F8FA;
+    --color-border: #DFE1E6;
+    --color-success: #216E4E;
+    --color-error: #AE2A19;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+    --focus-outline: 3px solid #0052CC;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size-base);
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: var(--line-height-base);
+    margin: 0;
+    padding: 0;
+}
+
+/* Tipografía con Contraste AA */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0.5em 0;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5, h6 { font-size: 1rem; }
+
+p {
+    margin: 0.5em 0 1em 0;
+}
+
+/* Enlaces Accesibles */
+a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    background-color: rgba(0, 82, 204, 0.1);
+}
+
+a:focus {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+a:visited {
+    color: #663399;
+}
+
+/* Formularios Accesibles */
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: var(--line-height-base);
+    border: 2px solid var(--color-border);
+    padding: 0.75rem;
+    border-radius: 4px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+    border-color: var(--color-primary);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Botones */
+button {
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #0039A6;
+}
+
+button:focus {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Skip Link (para navegar al contenido principal) */
+.skip-link {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: 999;
+}
+
+.skip-link:focus {
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Contenedor Principal */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Tablas Accesibles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+th {
+    background-color: var(--color-bg-light);
+    font-weight: 600;
+}
+
+/* Estado Focus Visible */
+:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+/* Máscaras para Lectores de Pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    
+    body { --font-size-base: 16px; }
+}
+
+/* Modo Oscuro (respeta preferencias del usuario) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #F1F2F4;
+        --color-bg: #161B22;
+        --color-bg-light: #0D1117;
+        --color-border: #30363D;
+    }
+}
+
+/* Respetar Preferencias de Movimiento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
